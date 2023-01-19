@@ -1,5 +1,4 @@
 # test__FUNBOX
-## можно посмотреть по ссылке https://yuliyaleushina.github.io/test__FUNBOX/
 
 
 Task Requirements

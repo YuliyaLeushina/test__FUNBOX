@@ -1,0 +1,442 @@
+@charset "UTF-8";
+@font-face {
+  font-family: TrebuchetMS;
+  font-display: swap;
+  src: url("../fonts/TrebuchetMS-Bold.woff2") format("woff2"), url("../fonts/TrebuchetMS-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Exo2;
+  font-display: swap;
+  src: url("../fonts/Exo2.0-Thin.woff2") format("woff2"), url("../fonts/Exo2.0-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: TrebuchetMS;
+  font-display: swap;
+  src: url("../fonts/TrebuchetMS.woff2") format("woff2"), url("../fonts/TrebuchetMS.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #666666;
+  line-height: 1;
+  font-family: "Exo2";
+  font-size: 1rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Exo2";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  max-width: 70rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+/*
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+		}
+		&::before {
+			top: 0px;
+		}
+		&::after {
+			bottom: 0px;
+		}
+		span {
+			top: calc(50% - 1px);
+		}
+		.menu-open & {
+			span {
+				transform: scale(0);
+			}
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - 1px);
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - 1px);
+			}
+		}
+	}
+}
+*/
+.page {
+  background: url(../img/Pattern.png);
+  display: flex;
+  align-items: center;
+}
+
+.block {
+  margin: auto;
+  background: url(../img/Pattern.png);
+  width: 100%;
+}
+.block__title {
+  font-family: Exo2;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 1px #000000;
+  margin-bottom: 24px;
+}
+.block__items {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -10px;
+}
+@media (max-width: 61.99875em) {
+  .block__items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.card {
+  max-width: 340px;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 61.99875em) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
+.card__inner {
+  border: 4px solid #1698D9;
+  margin-bottom: 14px;
+  position: relative;
+  background: #F2F2F2;
+  padding: 18px 45px 10px 48px;
+  min-height: 480px;
+  background: #F2F2F2 url(../img/Photo.png) no-repeat;
+  background-position: bottom left;
+  border-radius: 12px;
+  clip-path: polygon(0 9%, 14% 0, 100% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 100%);
+  transition: all 0.3s ease 0s;
+}
+.card__inner::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -23px;
+  background-color: #1698D9;
+  width: 25%;
+  height: 4px;
+  transform: rotate(136deg);
+  transition: all 0.3s ease 0s;
+}
+.card__bottom {
+  display: flex;
+  justify-content: center;
+}
+.card__slogan {
+  font-family: "TrebuchetMS";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease 0s;
+}
+.card__title {
+  font-family: "TrebuchetMS";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  /* identical to box height */
+  color: #000000;
+}
+.card__sub-title {
+  font-family: "TrebuchetMS";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+  margin-bottom: 15px;
+}
+.card__label {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #1698D9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease 0s;
+}
+.card__text {
+  font-family: "Trebuchet MS";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.card__item {
+  font-family: "Trebuchet MS";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+.card__num {
+  font-family: "TrebuchetMS";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 42px;
+  color: #FFFFFF;
+}
+.card__weight {
+  font-family: "Trebuchet MS";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+.card__link {
+  color: #1698d9;
+  position: relative;
+  transition: all 0.3s ease 0s;
+}
+.card__link::after {
+  position: absolute;
+  content: "";
+  background: url(../img/Underline.png);
+  height: 1px;
+  width: 85%;
+  bottom: -1px;
+  left: 0;
+  transition: all 0.3s ease 0s;
+}
+
+._selected .card__inner {
+  border: 4px solid #D91667;
+}
+._selected .card__inner::before {
+  background: #D91667;
+}
+._selected .card__label {
+  background: #D91667;
+}
+._selected .card__link {
+  color: #22a7e9;
+}
+._selected .card__link::after {
+  background: url(../img/Underline-hover.png);
+}
+
+._disabled {
+  cursor: not-allowed;
+}
+._disabled .card__slogan,
+._disabled .card__title,
+._disabled .card__sub-title,
+._disabled .card__item {
+  color: #B3B3B3;
+}
+._disabled .card__text {
+  color: #FFFF66;
+}
+._disabled .card__inner {
+  background: #F2F2F2 url(../img/photo-disabled.png) no-repeat;
+  border-color: #B3B3B3;
+}
+._disabled .card__inner::before {
+  background: #B3B3B3;
+}
+._disabled .card__label {
+  background: #B3B3B3;
+}
+._disabled:hover .card__slogan,
+._disabled:hover .card__title,
+._disabled:hover .card__sub-title,
+._disabled:hover .card__item {
+  color: #B3B3B3;
+}
+._disabled:hover .card__text {
+  color: #FFFF66;
+}
+._disabled:hover .card__inner {
+  background: #F2F2F2 url(../img/photo-disabled.png) no-repeat;
+  border-color: #B3B3B3;
+}
+._disabled:hover .card__inner::before {
+  background: #B3B3B3;
+}
+._disabled:hover .card__label {
+  background: #B3B3B3;
+}
+
+._selectedHover .card__inner {
+  border: 4px solid #E52E7A;
+}
+._selectedHover .card__inner::before {
+  background: #E52E7A;
+}
+._selectedHover .card__slogan {
+  color: #E52E7A;
+}
+._selectedHover .card__label {
+  background: #E52E7A;
+}
+._selectedHover .card__link {
+  color: #22a7e9;
+}
+._selectedHover .card__link::after {
+  background: url(../img/Underline-hover.png);
+}
+
+._hover .card__inner {
+  border-color: #2EA8E6;
+}
+._hover .card__inner::before {
+  background: #2EA8E6;
+}
+._hover .card__label {
+  background: #2EA8E6;
+}
+._hover .card__link {
+  color: #22a7e9;
+}
+._hover .card__link::after {
+  background: url(../img/Underline-hover.png);
+}
